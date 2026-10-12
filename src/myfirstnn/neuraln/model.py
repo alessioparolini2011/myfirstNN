@@ -1,35 +1,44 @@
 """
 model.py
 Author: Alessio Parolini
-Contains the data and the model for the initial tests
+Contains the data about the Neural Network Model
 """
 
 import torch
 
-# creating the input data for the test datas (example: temperature and humidity)
+from torch import nn
 
-x_input = [[22.5, 45.0], [28.0, 60.5], [15.2, 30.0]]
 
-X = torch.tensor(x_input, dtype=torch.float32)  # creating the tensor
+class ParableNN(nn.Module):
+    """
+    This is the class to create the model to predict parables
+    It has got 3 layers:
+    1 -> 22 -> 1.
+    Uses the ReLU
+    """
 
-# creating the expected output (canche of raining)
+    def __init__(self):
 
-expected_out = [[0.2], [0.8], [0.1]]
+        super().__init__()
 
-Y = torch.tensor(expected_out, dtype=torch.float32)
+        self.relu = nn.ReLU()
 
-print("INPUT TENSOR:\n")
+        self.layer1 = nn.Linear(in_features=1, out_features=22)  # first layer
 
-print(X)
+        self.layer2 = nn.Linear(in_features=22, out_features=22)  # hidden layer
 
-print(f"""
-Shape: {X.shape}\n
-Data type: {X.dtype}""")
+        self.layer3 = nn.Linear(in_features=22, out_features=1)  # final layer
 
-print("OUTPUT TENSOR:\n")
+        self.layers: list[nn.Linear] = [self.layer1, self.layer2, self.layer3]
 
-print(Y)
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
 
-print(f"""
-Shape: {Y.shape}\n
-Data type: {Y.dtype}""")
+        for layer in self.layers:
+
+            x = layer(x)
+
+            if layer is not self.layers[-1]:
+
+                x = self.relu(x)
+
+        return x
