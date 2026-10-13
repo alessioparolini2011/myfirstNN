@@ -4,13 +4,15 @@ Authors: Alessio Parolini
 Manage the training of the model
 """
 
+__all__ = ["random_io_tensors", "model_learning"]
+
 import torch
 
 from torch import nn
 
 from torch import optim
 
-from neuraln import ParableNN
+from src.myfirstnn.neuraln import ParableNN
 
 from typing import Callable
 
@@ -30,7 +32,7 @@ def random_io_tensors(n_input: int, n_range: int, y_function : Callable[[torch.T
 
     x = (2 * n_range * torch.rand(n_input, 1) - n_range)  # creating the results and putting in a range from -2 to 2
 
-    y = y_function(x) + torch.randn(n_input, 1)   # calculating the Y starting from X, using the given function and add a Gaussian noise
+    y = y_function(x) + torch.randn(n_input, 1) * 0.1   # calculating the Y starting from X, using the given function and add a Gaussian noise
 
     return x, y
 
