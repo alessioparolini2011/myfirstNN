@@ -19,7 +19,7 @@ class ParableNN(nn.Module):
     Uses the ReLU
     """
 
-    def __init__(self, name: str = "MyModel"):
+    def __init__(self, name: str):
 
         super().__init__()
 
