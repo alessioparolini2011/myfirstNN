@@ -4,14 +4,14 @@ Author: Alessio Parolini
 Contains the data about the Neural Network Model
 """
 
-__all__ = ["ParableNN"]
+__all__ = ["SimpleNN"]
 
 import torch
 
 from torch import nn
 
 
-class ParableNN(nn.Module):
+class SimpleNN(nn.Module):
     """
     This is the class to create the model to predict parables
     It has got 3 layers:

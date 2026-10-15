@@ -1,3 +1,3 @@
-from .model import *
+from myfirstnn.neuraln.model import *
 
-__all__ = ["ParableNN"]
+__all__ = ["SimpleNN"]
