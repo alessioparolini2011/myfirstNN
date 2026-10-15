@@ -1,3 +1,3 @@
-from .training import *
+from myfirstnn.learning.training import *
 
 __all__ = ["random_io_tensors", "model_learning"]

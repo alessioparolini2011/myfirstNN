@@ -12,7 +12,7 @@ from torch import nn
 
 from torch import optim
 
-from src.myfirstnn.neuraln import ParableNN
+from myfirstnn.neuraln import SimpleNN
 
 from typing import Callable
 
@@ -37,7 +37,7 @@ def random_io_tensors(n_input: int, n_range: int, y_function : Callable[[torch.T
     return x, y
 
 
-def model_learning(model: ParableNN, data: tuple[torch.Tensor, torch.Tensor], epochs: int = 300):
+def model_learning(model: SimpleNN, data: tuple[torch.Tensor, torch.Tensor], epochs: int = 300):
 
     error = nn.MSELoss()  # initializing the error function
 
