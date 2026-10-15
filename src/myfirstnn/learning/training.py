@@ -37,7 +37,16 @@ def random_io_tensors(n_input: int, n_range: int, y_function : Callable[[torch.T
     return x, y
 
 
-def model_learning(model: SimpleNN, data: tuple[torch.Tensor, torch.Tensor], epochs: int = 300):
+def model_learning(model: SimpleNN, data: tuple[torch.Tensor, torch.Tensor], epochs: int = 300, callback_log=None,):
+
+    """
+
+    :param model: the model to train
+    :param data: the tuple of data (input and output) to use for the training
+    :param epochs: the number of epochs the training lasts
+    :param callback_log: a RichLog object to show the logs in the TUI
+    :return:
+    """
 
     error = nn.MSELoss()  # initializing the error function
 
@@ -45,7 +54,9 @@ def model_learning(model: SimpleNN, data: tuple[torch.Tensor, torch.Tensor], epo
 
     final_loss = 0
 
-    print(f"Starting the training for {getattr(model, "name")}. It will last exactly {epochs} epochs. ")
+    if callback_log:
+
+        callback_log(f"Starting the training for {getattr(model, "name")}. It will last exactly {epochs} epochs. ")
 
     for epoch in range(epochs):
 
@@ -61,13 +72,17 @@ def model_learning(model: SimpleNN, data: tuple[torch.Tensor, torch.Tensor], epo
 
         if epoch % 10 == 0:  # every 10 epochs gives a report
 
-            print(f"Epoch: {epoch + 1} on {epochs} - Actual loss: {loss.item():.6f}")
+            if callback_log:
+
+                callback_log(f"Epoch: {epoch + 1} on {epochs} - Actual loss: {loss.item():.6f}")
 
         final_loss = loss.item() # updating every epoch for logic causes (if the loop doesn't start) the assignment doesn't happen and there's no error
 
 
 
-    print(f"""Training is done.\n
+    if callback_log:
+
+        callback_log(f"""Training is done.\n
             Final loss: {final_loss:.6f}""")
 
 
