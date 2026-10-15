@@ -1,9 +1,29 @@
 /* Styles for the main TUI */
 
-#title {
+#tui-title {
 
     color: #ffcc00;
 
     text-align: center;
 
 }
+
+#description {
+
+    color: #fff0b3;
+
+    text-align: center;
+
+    margin-top: 2;
+
+    border: solid #fffae6;
+
+}
+
+Button {
+
+    margin: 1 0 0 1;
+
+
+}
+
