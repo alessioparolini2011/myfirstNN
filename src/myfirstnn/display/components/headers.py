@@ -4,7 +4,7 @@ Authors: Alessio Parolini
 This file contains the class for the app headers
 """
 
-__all__ = ["Headers"]
+__all__ = ["Titles"]
 
 from textual.app import ComposeResult
 
@@ -34,5 +34,3 @@ class Titles(Center):
             content="""An incredible tool to create [bold #ffffff]your own AI model[/] from [bold #ffffff]your datas[/]!""",
             id="description",
         )
-
-

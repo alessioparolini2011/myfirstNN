@@ -4,13 +4,13 @@ Authors: Alessio Parolini
 This file contains the class to make the user config his model
 """
 
-from textual.widgets import Label, Input, Button, ProgressBar
+__all__ = ["ModelConfig"]
+
+from textual.widgets import Label, Input, Button, RichLog
 
 from textual.app import ComposeResult
 
-from textual.containers import VerticalScroll, Horizontal, Center
-
-from textual.color import Gradient
+from textual.containers import VerticalScroll
 
 from textual import work
 
@@ -34,30 +34,32 @@ class ModelConfig(VerticalScroll):
 
         yield Label(content="Write here your model name:")
 
-        yield Input(placeholder="Your model name here...", value="str", id="model-name")
+        yield Input(
+            placeholder="Your model name here...",
+            id="model-name",
+            type="text",
+        )
 
-        yield Button(label="Start training!", id="start-button", variant="warning")
+        yield Button(
+            label="Start training!",
+            id="start-button",
+            variant="warning",
+        )
 
-        with Center(id="progress-div"):
-
-            with Horizontal():
-
-                gradient = Gradient.from_colors("#ffeb99", "#ffd633", "#e6b800")
-
-                yield Label("[bold]Progress:[/] ")
-
-                yield ProgressBar(gradient=gradient)
+        yield RichLog()
 
     # functions
 
-    def start_training(self, event: Button.Pressed) -> None:
+    def on_button_pressed(self, event: Button.Pressed) -> None:
 
         if event.button.id == "start-button":
 
             model_name = self.query_one("#model-name", Input).value
 
+            self.training_setup(model_name=model_name)
+
     @work(thread=True, exclusive=True)
-    def train_model(self, model_name: str):
+    def training_setup(self, model_name: str):
         """
         Uses the resources form other sub-packages (learning and neuraln) to create a model and train it.
         Everything runs on a separate thread
@@ -67,4 +69,8 @@ class ModelConfig(VerticalScroll):
 
         test_data = rand_tens(n_input=1000, n_range=2, y_function=lambda x: x**2)
 
-        model_l(model=model, data=test_data, epochs=10000)
+        text_log = self.query_one(RichLog)
+
+        text_log.write("Starting the model log...")
+
+        model_l(model=model, data=test_data, epochs=10000, log_func=text_log.write)
