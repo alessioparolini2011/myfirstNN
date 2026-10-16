@@ -1,3 +1,3 @@
-from myfirstnn.display.cli import *
+from myfirstnn.display.app import *
 
-__all__ = ["onboard"]
+__all__ = ["AutoNNApp"]

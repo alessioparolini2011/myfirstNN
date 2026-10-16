@@ -24,6 +24,10 @@ Button {
 
     margin: 1 0 0 1;
 
-
 }
 
+ModelConfig {
+
+    margin: 1 2 2 1;
+
+}
