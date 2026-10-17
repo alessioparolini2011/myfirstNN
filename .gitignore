@@ -5,3 +5,9 @@
 #PyCharm .idea
 
 .idea/
+
+# Python Package Installer resources
+
+dist/
+
+*.egg-info
