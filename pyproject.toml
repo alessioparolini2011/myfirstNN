@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "myfirstnn"
+version = "0.1.0"
+description = "A simple TUI tool to creates and train NN from random data"
+readme = "README.md"
+authors = [
+    { name = "Alessio Parolini", email = "alepar.ap9@gmail.com" }
+]
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Environment :: Console",
+]
+dependencies = [
+    "textual>=8.2.8",
+    "torch>=2.14.1"
+]
+
+[project.scripts]
+myfirstnn = "myfirstnn.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["myfirstnn*"]
+
+[tool.setuptools.package-data]
+"myfirstnn.display" = ["styles/*.tcss"]
