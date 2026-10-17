@@ -1,4 +1,4 @@
-# autoNN
+# myfirstNN
 
 A simple TUI tool to create and train NN on random datas, to **teach the model how to calculate squares (x^2)**
 
@@ -45,7 +45,7 @@ myfirstnn
 to have a run-ready software. If you want to have an easier access to the software files on your device, run
 
 ```bash
-git clone https://github.com/alessioparolini2011/autoNN.git
+git clone https://github.com/alessioparolini2011/myfirstNN.git
 ```
 
 This command needs [Git](https://git-scm.com) on your device.
@@ -56,6 +56,7 @@ This project was built using the following amazing open-source libraries:
 
 * **[PyTorch](https://pytorch.org)** - An open-source machine learning framework used for creating, structuring, and
   training the neural network models.
-* **[Textual](https://textualize.io)** - A Python framework, used to build the beautiful and interactive Terminal User
+* **[Textual](https://textual.textualize.io/o)** - A Python framework, used to build the beautiful and interactive
+  Terminal User
   Interface (TUI).
 

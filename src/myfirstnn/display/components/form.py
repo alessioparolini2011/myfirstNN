@@ -45,13 +45,13 @@ class ModelConfig(Container):
         )
 
         yield Label(
-            content="[bold]How much data you wanna use (type an integer)?[/] Remind: more data means more work for your CPU/GPU",
+            content="[bold]How much data you wanna use[/]? (only numbers accepted)",
             id="inputs-label",
             classes="form-label",
         )
 
         yield Input(
-            placeholder="Enter the number of input do you wanna use...",
+            placeholder="Enter the number of input values do you wanna use...",
             id="model-inputs",
             type="integer",
             restrict="^[0-9]+$",

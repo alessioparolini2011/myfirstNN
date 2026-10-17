@@ -21,18 +21,17 @@ class Titles(Container):
 
             yield Label(
                 content=r"""
-                         ░██               ░███    ░██ ░███    ░██
-                         ░██               ░████   ░██ ░████   ░██
- ░██████   ░██    ░██ ░████████  ░███████  ░██░██  ░██ ░██░██  ░██
-      ░██  ░██    ░██    ░██    ░██    ░██ ░██ ░██ ░██ ░██ ░██ ░██
- ░███████  ░██    ░██    ░██    ░██    ░██ ░██  ░██░██ ░██  ░██░██
-░██   ░██  ░██   ░███    ░██    ░██    ░██ ░██   ░████ ░██   ░████
- ░█████░██  ░█████░██     ░████  ░███████  ░██    ░███ ░██    ░███ """,
+███╗   ███╗██╗   ██╗███████╗██╗██████╗ ███████╗████████╗███╗   ██╗███╗   ██╗
+████╗ ████║╚██╗ ██╔╝██╔════╝██║██╔══██╗██╔════╝╚══██╔══╝████╗  ██║████╗  ██║
+██╔████╔██║ ╚████╔╝ █████╗  ██║██████╔╝███████╗   ██║   ██╔██╗ ██║██╔██╗ ██║
+██║╚██╔╝██║  ╚██╔╝  ██╔══╝  ██║██╔══██╗╚════██║   ██║   ██║╚██╗██║██║╚██╗██║
+██║ ╚═╝ ██║   ██║   ██║     ██║██║  ██║███████║   ██║   ██║ ╚████║██║ ╚████║
+╚═╝     ╚═╝   ╚═╝   ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═══╝╚═╝  ╚═══╝ """,
                 id="tui-title",
             )
 
             yield Label(
-                content="""An incredible tool to create [bold #ffffff]your own AI model[/] from [bold #ffffff]random datas[/]!.\n
+                content="""An simple tool to create [bold #ffffff]your an AI model[/] from [bold #ffffff]random datas[/]!.\n
 For now, it can learn only how to calculate squares (x^2) of numbers.\n
 [bold]Try to edit number of inputs[/] to see how the precision changes!""",
                 id="description",

@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "myfirstnn"
-version = "0.1.0"
-description = "A simple TUI tool to creates and train NN from random data"
+version = "1.0.0"
+description = "A simple TUI tool to creates and train NN from random data. You can teach a AI model to calculate squares (x^2)."
 readme = "README.md"
 authors = [
     { name = "Alessio Parolini", email = "alepar.ap9@gmail.com" }
