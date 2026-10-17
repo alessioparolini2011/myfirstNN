@@ -39,7 +39,7 @@ def random_io_tensors(
     )  # creating the results and putting in a range from -2 to 2
 
     y = (
-        y_function(x) + torch.randn(n_input, 1) * 0.1
+        y_function(x) + torch.randn(n_input, 1) * 0.001
     )  # calculating the Y starting from X, using the given function and add a Gaussian noise
 
     return x, y
@@ -69,7 +69,7 @@ def model_learning(
     final_loss = 0
 
     log_func(
-        f"Starting the training for {getattr(model, 'name')}. It will last exactly {epochs} epochs. "
+        f"Starting the training for [bold]{getattr(model, 'name')}[/]. It will last exactly [bold]{epochs} epochs[/]. "
     )
 
     for epoch in range(epochs):
@@ -88,11 +88,11 @@ def model_learning(
 
         if epoch % 10 == 0:  # every 10 epochs gives a report
 
-            log_func(f"Epoch: {epoch + 1} on {epochs} - Actual loss: {loss.item():.6f}")
+            log_func(f"Epoch: {epoch} on {epochs} - Actual loss: {loss.item():.6f}")
 
         final_loss = (
             loss.item()
         )  # updating every epoch for logic causes (if the loop doesn't start) the assignment doesn't happen and there's no error
 
-    log_func(f"""Training is done.\n
-            Final loss: {final_loss:.6f}""")
+    log_func(f"""[italic]Training is done[/].\n
+            Final loss: [bold]{final_loss:.6f}[/]""")
