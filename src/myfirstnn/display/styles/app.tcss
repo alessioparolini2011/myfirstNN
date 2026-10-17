@@ -1,6 +1,16 @@
 /* Styles for the main TUI */
 
+Screen {
+
+    /* for the main app*/
+
+    overflow-y: scroll;
+
+}
+
 #tui-title {
+
+    /* the title */
 
     color: #ffcc00;
 
@@ -10,7 +20,9 @@
 
 #description {
 
-    color: #fff0b3;
+    /* the description */
+
+    color: #fffae6;
 
     text-align: center;
 
@@ -18,16 +30,64 @@
 
     border: solid #fffae6;
 
+    padding: 1 2 1 2
+
+}
+
+#start-button {
+
+    /* the button to start the training*/
+
+    margin: 1 2 1 2;
+
+    align: center middle;
+
+}
+
+#training-log {
+
+    height: 10;
+
+    margin: 1 2 1 2;
+
+    border: solid #ffcc00;
+
+}
+
+.form-label {
+
+    /* for the labels in form.py */
+
+    padding: 1 2 1 2
+
 }
 
 Button {
 
-    margin: 1 0 0 1;
+    /* for all the buttons generally */
 
+    margin: 0 5 0 5;
+
+    background: #ffcc00;
+
+}
+
+Titles {
+
+    /* for the TUI titles */
+
+    height: auto;
+
+    align: center middle;
 }
 
 ModelConfig {
 
-    margin: 1 2 2 1;
+    /* for the form.py component */
+
+    margin: 2 2 2 2;
+
+    height: auto;
 
 }
+
